@@ -1,3 +1,4 @@
+// Temp 1: Export function from other File
 const { add, sub } = require("./helper");
 const http = require('http');
 
@@ -12,3 +13,27 @@ const subTotal = sub(20, 10);
 
 console.log("Add: ", addTotal);
 console.log("Sub: ", subTotal);
+
+// Temp 2:  Loop programming
+const fs = require('fs')
+const fileName = "target.txt"
+
+fs.watch(fileName, () => console.log(`File changed`));
+
+// Temp 3: Synchronous & Asynchronus programming
+const fs = require("fs");
+const fileName = "target.txt";
+
+const data = fs.readFileSync(fileName);
+console.log("SYNCHRONOUS", data.toString());
+
+// fs.watch(fileName, () => console.log(`File changed`));
+
+fs.readFile(fileName, (err, data) =>{
+    if (err){
+        console.log(err);
+    }
+    console.log("ASYNCHRONOUS", data.toString());
+});
+
+console.log("NORMAL TEXT");
