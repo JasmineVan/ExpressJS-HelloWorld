@@ -11,16 +11,16 @@
 const fs = require("fs");
 const fileName = "target.txt";
 
-const data = fs.readFileSync(fileName);
-console.log("SYNCHRONOUS", data.toString());
+const errHandler = err => console.log(err);
+const dataHandler = data => console.log(data.toString());
 
 // fs.watch(fileName, () => console.log(`File changed`));
 
 fs.readFile(fileName, (err, data) =>{
     if (err){
-        console.log(err);
+        errHandler(err);
     }
-    console.log("ASYNCHRONOUS", data.toString());
+    dataHandler(data);
 });
 
 console.log("NORMAL TEXT");
