@@ -55,3 +55,12 @@ fs.readFile(fileName, (err, data) =>{
 });
 
 console.log("NORMAL TEXT");
+
+// Temp 5: Middleware
+// Custom middleware
+const customMiddleware = (req, res, next) => {
+    console.log("Parfois, une rencontre peut changer notre vie.");
+    next();
+}
+// Middleware: Call custom  
+app.use(customMiddleware);
